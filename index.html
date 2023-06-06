@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <style>
+     body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+    h1 {
+      text-align: center;
+    }
+
+    .altar {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+   
+
+    .incense-burner {
+     
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .incense-burner img {
+      max-width: 100px;
+    }
+
+    .smoke {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      background-image: url("khói.png");
+      background-size: cover;
+      animation: smokeAnimation 3s linear forwards;
+    }
+
+    @keyframes smokeAnimation {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+      100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+
+    .incense-sticks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+   
+  </style>
+</head>
+<body>
+  <div class="container">
+   
+    <div class="altar">
+      <img src="234.png" alt="Bàn thờ">
+      <div class="incense-burner">
+        <img id="incense-stick-1" src="bathuong.png" onclick="lightIncense('incense-stick-1')">
+      </div>
+      
+      <button onclick="performAction()">Thấp nhang và gửi lời cầu nguyện</button>
+      <audio id="myAudio" src="Tieng-chuong-chua-www_tiengdong_com.mp3" preload="auto">123</audio>
+    </div>
+  </div>
+
+  <script>
+    function performAction() {
+  lightIncense('incense-stick-1');
+  sendPrayer();
+}
+
+    function lightIncense(incenseId) {
+  var incenseStick = document.getElementById(incenseId);
+  incenseStick.src = "nhang.jpg";
+  animateSmoke(incenseStick);
+  setTimeout(function() {
+    extinguishIncense(incenseStick);
+  }, 30000);
+  var audio = document.getElementById("myAudio");
+      audio.play();
+}
+
+function lightAllIncense() {
+  var incenseSticks = document.getElementsByClassName("incense-stick");
+  for (var i = 0; i < incenseSticks.length; i++) {
+    var incenseStick = incenseSticks[i];
+    incenseStick.src = "nhang.jpg";
+    animateSmoke(incenseStick);
+    setTimeout(function() {
+      extinguishIncense(incenseStick);
+    }, 30000);
+  }
+}
+
+function animateSmoke(incenseStick) {
+  var smoke = document.createElement("div");
+  smoke.className = "smoke";
+  incenseStick.parentElement.appendChild(smoke);
+
+  setTimeout(function() {
+    smoke.remove();
+  }, 3000);
+}
+
+function extinguishIncense(incenseStick) {
+  incenseStick.src = "bathuong.png";
+}
+function sendPrayer() {
+      var prayerText = prompt("Nhập lời cầu nguyện của bạn:");
+
+      if (prayerText) {
+        // Gửi lời cầu nguyện qua email
+        var emailContent = "Lời cầu nguyện: " + prayerText;
+
+        // Sử dụng Nodemailer để gửi email
+        var nodemailer = require('nodemailer');
+
+        var transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: 'ranklatatca@gmail.com',
+            pass: 'sinh01227778163'
+          }
+        });
+
+        var mailOptions = {
+          from: 'ntai4375@gmail.com',
+          to: 'ranklatatca@gmail.com',
+          subject: 'Lời cầu nguyện',
+          text: emailContent
+        };
+
+        transporter.sendMail(mailOptions, function(error, info){
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>
+
