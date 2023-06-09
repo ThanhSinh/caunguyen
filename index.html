@@ -6,99 +6,454 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
   <style>
-     body {
-      background-color: #f1f1f1;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
+          body {
+    background-color: #f1f1f1;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Disable vertical scrolling */
+  }
+ 
     .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 120vh;
+    }
 
     h1 {
       text-align: center;
     }
 
-    .altar {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      padding: 20px;
-      text-align: center;
-      margin-top: 20px;
-    }
-
    
-
+    .altar {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 100px;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
     .incense-burner {
-     
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
+      position: absolute; 
+      top: 24%; 
+      left: 50%; 
+      transform: translate(-50%, -50%); 
     }
+    
 
     .incense-burner img {
       max-width: 100px;
+      display: block; 
+      margin: 0 auto; 
     }
+    .incense-burner1 {
+   
+    transform: translate(10px, -30%);
+  }
 
-    .smoke {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100px;
-      height: 100px;
-      background-image: url("khói.png");
-      background-size: cover;
-      animation: smokeAnimation 3s linear forwards;
-    }
+  .incense-burner1 img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+  }
+    
 
-    @keyframes smokeAnimation {
-      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-      100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    }
-
+    
     .incense-sticks {
       display: flex;
       justify-content: space-between;
       margin-top: 10px;
     }
+    
+.food-wrapper {
+  position: fixed;
+  top: 38%;
+  left: 100%;
+  transform: translate(-80%, -50%);
+}
 
-   
+/* menu */
+.menu-wrapper, .menu a{
+  width: 100%;
+}
+
+.menu::after{
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.menu a{
+  display: block;
+  padding: 10px;
+  top: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.menu li{
+  position: relative;
+}
+
+.menu > li{
+  float: left;
+}
+
+.menu, .menu ul{
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  background: rgb(252, 251, 248);
+  position: fixed; /* Position the menu fixed */
+  top: 0; /* Position the menu at the top */
+  width: 100%; /* Set the width to 100% */
+}
+
+.menu ul li+li{
+  border-top: 1px solid #fff;
+}
+
+.menu ul{
+  position: absolute;
+  box-shadow:  5px 5px 10px 0 rgba(0,0,0, 0.5);
+}
+
+.menu > li ul, .menu ul ul{
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  z-index: -1;
+  visibility: hidden;
+}
+
+.menu > li ul{
+  top: 130%;
+  left: 0;
+}
+
+.menu ul ul{
+  left: 130%;
+  top: 0;
+}
+
+.menu ul a{
+  width: 250px;
+}
+
+.menu > li:hover > ul{
+  top: 100%;
+  opacity: 1;
+  z-index: 1;
+  visibility: visible;
+}
+
+.menu ul > li:hover > ul{
+  left: 100%;
+  opacity: 1;
+  z-index: 1;
+  visibility: visible;
+}
+
+.menu-gold, .menu-gold a{
+  color: #000;
+}
+.menu-gold a:hover{
+  background-color: #f7f6f2;
+  color: #000;
+}
+
+body{
+  background-image: url("http://recruit.framgia.vn/wp-content/themes/framgia-vn/css/images/bg/banner.jpg");
+  text-align: center;
+}
+
+h1{
+  text-align: center;
+  margin-top: 20px;
+  color: #fff;
+  font-size: 40px;
+}
+.menu a img {
+  max-width: 30px; /* Set the maximum width of the food images */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 5px; /* Add some spacing between the image and text */
+}
+.button {  
+  background-color: #58257b; /* Màu của Quản trị mạng ^^ */  
+  border: none;  color: white;  padding: 16px 32px;  
+  text-align: center;  
+  text-decoration: none;  
+  display: inline-block;  
+  font-size: 16px;  
+  margin: 4px 2px;  
+  -webkit-transition-duration: 0.4s; /* Safari */  
+  transition-duration: 0.4s;  
+  cursor: pointer;  
+  border-radius: 4px;}
+
+.button1 {  
+  background-color: white;   
+  color: black;   
+  border: 2px solid crimson;}
+  .button1:hover {  
+    background-color: crimson; 
+     color: white;}
+     .button8 {  
+      background-color: midnightblue;  
+      color: white;  
+      border: 2px solid midnightblue;}
+.button8:hover {  
+  background-color: white;  
+  color: black;  
+  border: 2px solid midnightblue;}
+
+  @keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.shaking {
+  animation: shake 0.5s infinite;
+}
+
+
+
   </style>
 </head>
 <body>
   <div class="container">
-   
+    
+    <div class="menu">
+     
+      <li>
+        <a> Món cúng</a>
+        <ul>
+          <img src="heoqauy.png" onclick="placeFood('heoqauy')" alt="heoqauy" style="width: 100px; height: auto;">
+          <img src="trai cây.png" onclick="placeFood('trai cây')" alt="trai cây" style="width: 100px; height: auto;">
+          <img src="ga.png" onclick="placeFood('ga')" alt="ga" style="width: 100px; height: auto;">
+
+
+          
+        </ul>
+      </li>
+    </div>
     <div class="altar">
+      
       <img src="234.png" alt="Bàn thờ">
       <div class="incense-burner">
         <img id="incense-stick-1" src="bathuong.png" onclick="lightIncense('incense-stick-1')">
       </div>
-      
-      <button onclick="performAction()">Thấp nhang và gửi lời cầu nguyện</button>
-      <audio id="myAudio" src="Tieng-chuong-chua-www_tiengdong_com.mp3" preload="auto">123</audio>
+      <div class="incense-burner1">
+        <img  src="ban.png" >
+        <img id="unnamed-img" src="unnamed.png" style="position: absolute; transform: translate(-50%, -50%); top: -20%; left: 3%; display: none;">
+        <button class="button button8" onclick="requestLuck()">Xin xăm may mắn</button>
+        <button class="button button1" onclick="performAction()">Thấp nhang và gửi lời cầu nguyện</button>
+        <button class="button button1" onclick="clearSelectedFoods()">Xóa các món ăn đã hiển thị</button>
+      </div>
+     
+
+      <audio id="myAudio" src="Than-Tai-Den-Don-Nguyen.mp3" preload="auto">123</audio>
     </div>
+    <div id="food-container"></div>
   </div>
 
   <script>
-    function performAction() {
-  lightIncense('incense-stick-1');
-  sendPrayer();
+  function shakeImage() {
+  var unnamedImage = document.getElementById('unnamed-img');
+  unnamedImage.classList.add('shaking');
 }
 
+
+function requestLuck() {
+  var upperTattoos = [1,2,7,8,9,10,11,19,21,22,24,30,32,40,45,50,54,55,57,58,60,64,65,66,68,69,74,78,79,80,87,89,92,93,97,98,99,100];
+  var middleTattoos = [3,5,12,13,16,18,20,23,26,27,28,29,31,33,34,35,36,37,39,41,42,43,44,46,48,51,52,53,56,61,62,63,67,71,72,73,75,76,77,81,82,83,84,85,86,88,90,91,94,95];
+  var lowerTattoos = [4,6,14,15,17,25,38,47,49,59,70,96];
+
+  var unnamedImage = document.getElementById('unnamed-img');
+  unnamedImage.style.display = 'block';
+  shakeImage();
+  // Hiển thị hình ảnh "unnamed-img"
+  unnamedImage.style.display = "inline-block";
+  // Ẩn các hình ảnh khác
+
+  // Lấy số ngẫu nhiên từ mảng tương ứng
+  var randomTattoo;
+  var tattooType;
+
+  // Kiểm tra xăm thượng
+  if (upperTattoos.length > 0) {
+    randomTattoo = upperTattoos[Math.floor(Math.random() * upperTattoos.length)];
+    tattooType = "Xăm thượng";
+    // Xử lý cho xăm thượng
+  }
+
+  // Kiểm tra xăm trung
+  else if (middleTattoos.length > 0) {
+    randomTattoo = middleTattoos[Math.floor(Math.random() * middleTattoos.length)];
+    tattooType = "Xăm Trung";
+    // Xử lý cho xăm trung
+  }
+
+  // Kiểm tra xăm hạ
+  else if (lowerTattoos.length > 0) {
+    randomTattoo = lowerTattoos[Math.floor(Math.random() * lowerTattoos.length)];
+    tattooType = "Xăm Hạ";
+    // Xử lý cho xăm hạ
+  }
+
+  // Hiển thị thông báo thành công
+  setTimeout(function() {
+    unnamedImage.style.display = 'none';
+    unnamedImage.classList.remove('shaking');
+    alert("Xin xăm may mắn thành công!\nBạn được xăm: " + tattooType + " - " + randomTattoo);
+  }, 3000);
+
+}
+
+
+    function displaySelectedFoods() {
+  clearTimeout(foodTimer); // Clear any existing timers
+
+  // Remove all previously displayed food items
+  var existingFood = document.querySelectorAll(".food-wrapper");
+  existingFood.forEach(function (food) {
+    food.remove();
+    var foodId = food.getAttribute("foodId");
+    var index = selectedFoods.indexOf(foodId);
+    if (index !== -1) {
+      selectedFoods.splice(index, 1);
+    }
+  });
+
+  // Loop through the selected food items and display them
+  selectedFoods.forEach(function (foodId) {
+    placeFood(foodId);
+  });
+
+  // Set a timer to remove the food items from the display after 30 seconds
+  foodTimer = setTimeout(function () {
+    var foodToRemove = document.querySelectorAll(".food-wrapper");
+    foodToRemove.forEach(function (food) {
+      food.remove();
+      var foodId = food.getAttribute("foodId");
+      var index = selectedFoods.indexOf(foodId);
+      if (index !== -1) {
+        selectedFoods.splice(index, 1);
+      }
+    });
+  }, 30000); // Set the display time to 30 seconds
+}
+
+function performAction() {
+  lightIncense('incense-stick-1');
+  sendPrayer();
+  displaySelectedFoods(); // Display all selected food items
+
+  // Set a timer to remove all food items after 30 seconds
+  setTimeout(function () {
+    var foodToRemove = document.querySelectorAll(".food-wrapper");
+    foodToRemove.forEach(function (food) {
+      food.remove();
+      var foodId = food.getAttribute("foodId");
+      var index = selectedFoods.indexOf(foodId);
+      if (index !== -1) {
+        selectedFoods.splice(index, 1);
+      }
+    });
+  }, 30000);
+}
+
+
+
+function clearSelectedFoods() {
+  // Xóa tất cả các món ăn đã hiển thị
+  var foodToRemove = document.querySelectorAll(".food-wrapper");
+  foodToRemove.forEach(function (food) {
+    food.remove();
+    var foodId = food.getAttribute("foodId");
+    var index = selectedFoods.indexOf(foodId);
+    if (index !== -1) {
+      selectedFoods.splice(index, 1);
+    }
+  });
+}
+
+
+
+
+
+function toggleMenu() {
+  var menu = document.querySelector(".menu");
+  if (menu.style.display === "none") {
+    menu.style.display = "block";
+  } else {
+    menu.style.display = "none";
+  }
+}
+
+function placeFood(foodId) {
+  var existingFood = document.querySelectorAll(".placed-food");
+
+  // Check if the maximum of 3 food items is already placed
+  if (existingFood.length >= 3) {
+    // Check if this is the 4th food item
+    if ((existingFood.length + 1) % 4 === 0) {
+      // Do something when the 4th food item is placed
+    }
+  }
+
+  // Code to place the food item on the altar
+  var foodElement = document.createElement("img");
+  var foodItemId = "food-" + Date.now(); // Generate a unique identifier
+  foodElement.dataset.foodId = foodItemId;
+  foodElement.src = foodId + ".png";
+  foodElement.alt = "Đồ ăn";
+  foodElement.classList.add("placed-food");
+  foodElement.style.width = "100px";
+  foodElement.style.height = "auto"; // Maintain aspect ratio
+
+  var foodWrapper = document.createElement("div");
+  foodWrapper.classList.add("food-wrapper");
+  foodWrapper.appendChild(foodElement);
+
+  // Calculate the position for the new food item
+  var leftPosition = 48 + (existingFood.length % 3) * 4; // Increase 4px spacing between food items
+  foodWrapper.style.left = leftPosition + "%";
+
+  // Add foodWrapper to the body element
+  var bodyElement = document.querySelector("body");
+  bodyElement.appendChild(foodWrapper);
+}
+
+function sendPrayer() {
+  // Display all the selected food items from the array
+  selectedFoods.forEach(function (foodId) {
+    placeFood(foodId);
+  });
+}
+
+
+
+
+
+
+    
     function lightIncense(incenseId) {
   var incenseStick = document.getElementById(incenseId);
-  incenseStick.src = "nhang.jpg";
+  incenseStick.src = "nhang.png";
   animateSmoke(incenseStick);
   setTimeout(function() {
     extinguishIncense(incenseStick);
@@ -111,7 +466,7 @@ function lightAllIncense() {
   var incenseSticks = document.getElementsByClassName("incense-stick");
   for (var i = 0; i < incenseSticks.length; i++) {
     var incenseStick = incenseSticks[i];
-    incenseStick.src = "nhang.jpg";
+    incenseStick.src = "nhang.png";
     animateSmoke(incenseStick);
     setTimeout(function() {
       extinguishIncense(incenseStick);
