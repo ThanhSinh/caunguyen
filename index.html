@@ -6,64 +6,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
   <style>
-          body {
-    background-color: #f1f1f1;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Disable vertical scrolling */
-  }
- 
+   
+   body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Disable vertical scrolling */
+    }
+    
     .container {
       max-width: 600px;
       margin: 0 auto;
       padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 120vh;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-   
-    .altar {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 100px;
-  text-align: center;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-    .incense-burner {
-      position: absolute; 
-      top: 24%; 
-      left: 50%; 
-      transform: translate(-50%, -50%); 
+      height: 110vh;
     }
     
-
+    .menu {
+      background: rgb(252, 251, 248);
+      position: fixed; /* Position the menu fixed */
+      top: 0; /* Position the menu at the sdasdasádasdtop */
+      z-index: 1;
+    }
+    
+    .menu > li {
+      float: left;
+      position: relative;
+    }
+    
+    .menu > li > a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      font-size: 20px;
+    }
+    
+    .menu ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      background-color: #f7f6f2;
+      box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+      transition: all 0.2s ease-in;
+      z-index: -1;
+    }
+    
+    .menu > li:hover > ul,
+    .menu ul li:hover > ul {
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
+    }
+    
+    .menu ul li {
+      border-top: 1px solid #fff;
+    }
+    
+    .menu ul a {
+      width: 250px;
+      padding: 10px;
+      text-decoration: none;
+    }
+    
+    .menu a img {
+      max-width: 30px;
+      height: auto;
+      margin-right: 5px;
+    }
+    
+    .altar {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 100px;
+      text-align: center;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .incense-burner {
+      position: absolute;
+      top: 24%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
     .incense-burner img {
       max-width: 100px;
-      display: block; 
-      margin: 0 auto; 
+      display: block;
+      margin: 0 auto;
     }
-    .incense-burner1 {
-   
-    transform: translate(10px, -30%);
-  }
-
-  .incense-burner1 img {
-    width: 100%; 
-    height: 100%;
-    object-fit: cover; 
-  }
     
-
+    .incense-burner1 {
+      transform: translate(10px, -30%);
+    }
+    
+    .incense-burner1 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     
     .incense-sticks {
       display: flex;
@@ -71,204 +116,116 @@
       margin-top: 10px;
     }
     
-.food-wrapper {
-  position: fixed;
-  top: 38%;
-  left: 100%;
-  transform: translate(-80%, -50%);
-}
-
-/* menu */
-.menu-wrapper, .menu a{
-  width: 100%;
-}
-
-.menu::after{
-  content: '';
-  clear: both;
-  display: block;
-}
-
-.menu a{
-  display: block;
-  padding: 10px;
-  top: 100%;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-size: 20px;
-}
-
-.menu li{
-  position: relative;
-}
-
-.menu > li{
-  float: left;
-}
-
-.menu, .menu ul{
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-  background: rgb(252, 251, 248);
-  position: fixed; /* Position the menu fixed */
-  top: 0; /* Position the menu at the top */
-  width: 100%; /* Set the width to 100% */
-}
-
-.menu ul li+li{
-  border-top: 1px solid #fff;
-}
-
-.menu ul{
-  position: absolute;
-  box-shadow:  5px 5px 10px 0 rgba(0,0,0, 0.5);
-}
-
-.menu > li ul, .menu ul ul{
-  opacity: 0;
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-  z-index: -1;
-  visibility: hidden;
-}
-
-.menu > li ul{
-  top: 130%;
-  left: 0;
-}
-
-.menu ul ul{
-  left: 130%;
-  top: 0;
-}
-
-.menu ul a{
-  width: 250px;
-}
-
-.menu > li:hover > ul{
-  top: 100%;
-  opacity: 1;
-  z-index: 1;
-  visibility: visible;
-}
-
-.menu ul > li:hover > ul{
-  left: 100%;
-  opacity: 1;
-  z-index: 1;
-  visibility: visible;
-}
-
-.menu-gold, .menu-gold a{
-  color: #000;
-}
-.menu-gold a:hover{
-  background-color: #f7f6f2;
-  color: #000;
-}
-
-body{
-  background-image: url("http://recruit.framgia.vn/wp-content/themes/framgia-vn/css/images/bg/banner.jpg");
-  text-align: center;
-}
-
-h1{
-  text-align: center;
-  margin-top: 20px;
-  color: #fff;
-  font-size: 40px;
-}
-.menu a img {
-  max-width: 30px; /* Set the maximum width of the food images */
-  height: auto; /* Maintain aspect ratio */
-  margin-right: 5px; /* Add some spacing between the image and text */
-}
-.button {  
-  background-color: #58257b; /* Màu của Quản trị mạng ^^ */  
-  border: none;  color: white;  padding: 16px 32px;  
-  text-align: center;  
-  text-decoration: none;  
-  display: inline-block;  
-  font-size: 16px;  
-  margin: 4px 2px;  
-  -webkit-transition-duration: 0.4s; /* Safari */  
-  transition-duration: 0.4s;  
-  cursor: pointer;  
-  border-radius: 4px;}
-
-.button1 {  
-  background-color: white;   
-  color: black;   
-  border: 2px solid crimson;}
-  .button1:hover {  
-    background-color: crimson; 
-     color: white;}
-     .button8 {  
-      background-color: midnightblue;  
-      color: white;  
-      border: 2px solid midnightblue;}
-.button8:hover {  
-  background-color: white;  
-  color: black;  
-  border: 2px solid midnightblue;}
-
-  @keyframes shake {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(-5deg); }
-  50% { transform: rotate(5deg); }
-  75% { transform: rotate(-5deg); }
-  100% { transform: rotate(0deg); }
-}
-
-.shaking {
-  animation: shake 0.5s infinite;
-}
-
-
+    .food-wrapper {
+      position: fixed;
+      top: 38%;
+      left: 100%;
+      transform: translate(-80%, -50%);
+    }
+    
+    .button {
+      background-color: #58257b;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    
+    .button1 {
+      background-color: white;
+      color: black;
+      border: 2px solid crimson;
+    }
+    
+    .button1:hover {
+      background-color: crimson;
+      color: white;
+    }
+    
+    .button8 {
+      background-color: midnightblue;
+      color: white;
+      border: 2px solid midnightblue;
+    }
+    
+    .button8:hover {
+      background-color: white;
+      color: black;
+      border: 2px solid midnightblue;
+    }
+    
+    @keyframes shake {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(-5deg);
+      }
+      50% {
+        transform: rotate(5deg);
+      }
+      75% {
+        transform: rotate(-5deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+    
+    .shaking {
+      animation: shake 0.5s infinite;
+    }
+    
+    body {
+      background-image: url("http://recruit.framgia.vn/wp-content/themes/framgia-vn/css/images/bg/banner.jpg");
+      text-align: center;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: #fff;
+      font-size: 40px;
+    }
 
   </style>
 </head>
 <body>
   <div class="container">
-    
     <div class="menu">
-     
       <li>
         <a> Món cúng</a>
         <ul>
           <img src="heoqauy.png" onclick="placeFood('heoqauy')" alt="heoqauy" style="width: 100px; height: auto;">
           <img src="trai cây.png" onclick="placeFood('trai cây')" alt="trai cây" style="width: 100px; height: auto;">
           <img src="ga.png" onclick="placeFood('ga')" alt="ga" style="width: 100px; height: auto;">
-
-
-          
         </ul>
       </li>
     </div>
     <div class="altar">
-      
       <img src="234.png" alt="Bàn thờ">
       <div class="incense-burner">
         <img id="incense-stick-1" src="bathuong.png" onclick="lightIncense('incense-stick-1')">
       </div>
       <div class="incense-burner1">
-        <img  src="ban.png" >
+        <img src="ban.png">
         <img id="unnamed-img" src="unnamed.png" style="position: absolute; transform: translate(-50%, -50%); top: -20%; left: 3%; display: none;">
         <button class="button button8" onclick="requestLuck()">Xin xăm may mắn</button>
         <button class="button button1" onclick="performAction()">Thấp nhang và gửi lời cầu nguyện</button>
         <button class="button button1" onclick="clearSelectedFoods()">Xóa các món ăn đã hiển thị</button>
       </div>
-     
-
       <audio id="myAudio" src="Than-Tai-Den-Don-Nguyen.mp3" preload="auto">123</audio>
     </div>
     <div id="food-container"></div>
   </div>
+
 
   <script>
   function shakeImage() {
