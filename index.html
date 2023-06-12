@@ -5,225 +5,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
-  <style>
-   
-   body {
-      background-color: #f1f1f1;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      overflow: hidden; /* Disable vertical scrolling */
-    }
-    
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      height: 110vh;
-    }
-    
-    .menu {
-      background: rgb(252, 251, 248);
-      position: fixed; /* Position the menu fixed */
-      top: 0; /* Position the menu at the sdasdasádasdtop */
-      z-index: 1;
-    }
-    
-    .menu > li {
-      float: left;
-      position: relative;
-    }
-    
-    .menu > li > a {
-      display: block;
-      padding: 10px;
-      text-decoration: none;
-      font-size: 20px;
-    }
-    
-    .menu ul {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      opacity: 0;
-      visibility: hidden;
-      background-color: #f7f6f2;
-      box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
-      transition: all 0.2s ease-in;
-      z-index: -1;
-    }
-    
-    .menu > li:hover > ul,
-    .menu ul li:hover > ul {
-      opacity: 1;
-      visibility: visible;
-      z-index: 1;
-    }
-    
-    .menu ul li {
-      border-top: 1px solid #fff;
-    }
-    
-    .menu ul a {
-      width: 250px;
-      padding: 10px;
-      text-decoration: none;
-    }
-    
-    .menu a img {
-      max-width: 30px;
-      height: auto;
-      margin-right: 5px;
-    }
-    
-    .altar {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      padding: 100px;
-      text-align: center;
-      position: relative;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    
-    .incense-burner {
-      position: absolute;
-      top: 24%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    
-    .incense-burner img {
-      max-width: 100px;
-      display: block;
-      margin: 0 auto;
-    }
-    
-    .incense-burner1 {
-      transform: translate(10px, -30%);
-    }
-    
-    .incense-burner1 img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .incense-sticks {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-    }
-    
-    .food-wrapper {
-      position: fixed;
-      top: 38%;
-      left: 100%;
-      transform: translate(-80%, -50%);
-    }
-    
-    .button {
-      background-color: #58257b;
-      border: none;
-      color: white;
-      padding: 16px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      transition-duration: 0.4s;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    
-    .button1 {
-      background-color: white;
-      color: black;
-      border: 2px solid crimson;
-    }
-    
-    .button1:hover {
-      background-color: crimson;
-      color: white;
-    }
-    
-    .button8 {
-      background-color: midnightblue;
-      color: white;
-      border: 2px solid midnightblue;
-    }
-    
-    .button8:hover {
-      background-color: white;
-      color: black;
-      border: 2px solid midnightblue;
-    }
-    
-    @keyframes shake {
-      0% {
-        transform: rotate(0deg);
-      }
-      25% {
-        transform: rotate(-5deg);
-      }
-      50% {
-        transform: rotate(5deg);
-      }
-      75% {
-        transform: rotate(-5deg);
-      }
-      100% {
-        transform: rotate(0deg);
-      }
-    }
-    
-    .shaking {
-      animation: shake 0.5s infinite;
-    }
-    
-    body {
-      background-image: url("http://recruit.framgia.vn/wp-content/themes/framgia-vn/css/images/bg/banner.jpg");
-      text-align: center;
-    }
-    
-    h1 {
-      text-align: center;
-      margin-top: 20px;
-      color: #fff;
-      font-size: 40px;
-    }
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-  </style>
 </head>
 <body>
+  
+  
   <div class="container">
-    <div class="menu">
-      <li>
-        <a> Món cúng</a>
-        <ul>
-          <img src="heoqauy.png" onclick="placeFood('heoqauy')" alt="heoqauy" style="width: 100px; height: auto;">
-          <img src="trai cây.png" onclick="placeFood('trai cây')" alt="trai cây" style="width: 100px; height: auto;">
-          <img src="ga.png" onclick="placeFood('ga')" alt="ga" style="width: 100px; height: auto;">
-        </ul>
-      </li>
-    </div>
+    <input type="checkbox" id="menu1" />
+<label for="menu1" class="menu1">
+	<span></span>
+	<span></span>
+	<span></span>
+</label>
+
+<nav class="nav">
+	<ul>
+		<li><a href="#"><img src="ga.png" onclick="placeFood('ga')"  style="width: 60px; top: 70px; height: 70px;"></a></li>
+		<li><a href="#"><img src="heoqauy.png" onclick="placeFood('heoqauy')"  style="width: 60px; top: 70px; height: 70px;"></a></li>
+		<li><a href="#"><img src="trai cây.png" onclick="placeFood('trai cây')"  style="width: 60px; top: 70px; height: 70px;"></a></li>
+		<li><a href="#">Contact</a></li>
+	</ul>
+</nav>
+
+
+
+    
+      </label>
+    </section>
     <div class="altar">
-      <img src="234.png" alt="Bàn thờ">
-      <div class="incense-burner">
-        <img id="incense-stick-1" src="bathuong.png" onclick="lightIncense('incense-stick-1')">
+      <img id="incense-stick-1" src="caunguyen.png" onclick="lightIncense('incense-stick-1')">
+      <div class="food-container">      
+        <div class="food-row">
+          <div class="food-slot"></div>
+          <div class="food-slot"></div>
+        </div>
+        <div class="food-row">
+          <div class="food-slot"></div>
+          <div class="food-slot"></div>
+        </div>
+        <div class="food-row">
+          <div class="food-slot"></div>
+          <div class="food-slot"></div>
+        </div>
       </div>
-      <div class="incense-burner1">
-        <img src="ban.png">
-        <img id="unnamed-img" src="unnamed.png" style="position: absolute; transform: translate(-50%, -50%); top: -20%; left: 3%; display: none;">
-        <button class="button button8" onclick="requestLuck()">Xin xăm may mắn</button>
-        <button class="button button1" onclick="performAction()">Thấp nhang và gửi lời cầu nguyện</button>
-        <button class="button button1" onclick="clearSelectedFoods()">Xóa các món ăn đã hiển thị</button>
-      </div>
+      
+      
+      <img id="unnamed-img" src="unnamed.png" style="position: absolute; transform: translate(-50%, -50%); display: none;">
+      <nav class="menu">
+        <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+        <label class="menu-open-button" for="menu-open">
+         <span class="lines line-1"></span>
+         <span class="lines line-2"></span>
+         <span class="lines line-3"></span>
+       </label>
+     
+        
+        <a href="#" class="menu-item red" > <i></i><img src="unnamed.png" onclick="requestLuck()"  style="width: 60px; top: 70px; height: 70px;"> </a>
+        <a href="#" class="menu-item purple"> <i ></i><img src="cross.png"onclick="clearSelectedFoods()" alt="heoqauy" style="width: 70px; height: 70px;"> </a>
+        <a href="#" class="menu-item blue"> <i></i><img src="nhang.png" onclick="performAction()"  style="width: 60px; height: auto;"> </a>
+       
+     </nav>
       <audio id="myAudio" src="Than-Tai-Den-Don-Nguyen.mp3" preload="auto">123</audio>
     </div>
-    <div id="food-container"></div>
+   
+   
+     
+    
   </div>
 
 
@@ -379,21 +229,24 @@ function placeFood(foodId) {
   foodElement.src = foodId + ".png";
   foodElement.alt = "Đồ ăn";
   foodElement.classList.add("placed-food");
-  foodElement.style.width = "100px";
+  foodElement.style.width = "70px";
   foodElement.style.height = "auto"; // Maintain aspect ratio
 
   var foodWrapper = document.createElement("div");
   foodWrapper.classList.add("food-wrapper");
   foodWrapper.appendChild(foodElement);
 
-  // Calculate the position for the new food item
-  var leftPosition = 48 + (existingFood.length % 3) * 4; // Increase 4px spacing between food items
-  foodWrapper.style.left = leftPosition + "%";
-
-  // Add foodWrapper to the body element
-  var bodyElement = document.querySelector("body");
-  bodyElement.appendChild(foodWrapper);
+  // Find the first available food slot
+  var foodSlots = document.querySelectorAll(".food-slot");
+  var nextSlot = Array.from(foodSlots).find(slot => slot.childElementCount === 0);
+  if (nextSlot) {
+    nextSlot.appendChild(foodWrapper);
+  } else {
+    console.log("No available food slots.");
+    return;
+  }
 }
+
 
 function sendPrayer() {
   // Display all the selected food items from the array
@@ -410,7 +263,7 @@ function sendPrayer() {
     
     function lightIncense(incenseId) {
   var incenseStick = document.getElementById(incenseId);
-  incenseStick.src = "nhang.png";
+  incenseStick.src = "caunguyen2.png";
   animateSmoke(incenseStick);
   setTimeout(function() {
     extinguishIncense(incenseStick);
@@ -423,7 +276,7 @@ function lightAllIncense() {
   var incenseSticks = document.getElementsByClassName("incense-stick");
   for (var i = 0; i < incenseSticks.length; i++) {
     var incenseStick = incenseSticks[i];
-    incenseStick.src = "nhang.png";
+    incenseStick.src = "caunguyen2.png";
     animateSmoke(incenseStick);
     setTimeout(function() {
       extinguishIncense(incenseStick);
@@ -442,7 +295,7 @@ function animateSmoke(incenseStick) {
 }
 
 function extinguishIncense(incenseStick) {
-  incenseStick.src = "bathuong.png";
+  incenseStick.src = "caunguyen.png";
 }
 function sendPrayer() {
       var prayerText = prompt("Nhập lời cầu nguyện của bạn:");
@@ -481,4 +334,6 @@ function sendPrayer() {
   </script>
 </body>
 </html>
+
+
 
