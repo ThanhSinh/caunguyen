@@ -8,11 +8,11 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="menu.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <script src="index.js"></script>
+
 
 </head>
-<body>
-  
-  
+<body> 
   <div class="container">
     <input type="checkbox" id="menu1" />
 <label for="menu1" class="menu1">
@@ -20,19 +20,15 @@
 	<span></span>
 	<span></span>
 </label>
-
 <nav class="nav">
 	<ul>
 		<li><a href="#"><img src="ga.png" onclick="placeFood('ga')"  style="width: 60px; top: 70px; height: 70px;"></a></li>
 		<li><a href="#"><img src="heoqauy.png" onclick="placeFood('heoqauy')"  style="width: 60px; top: 70px; height: 70px;"></a></li>
 		<li><a href="#"><img src="trai cây.png" onclick="placeFood('trai cây')"  style="width: 60px; top: 70px; height: 70px;"></a></li>
-		<li><a href="#">Contact</a></li>
+		<li><a href="https://me.momo.vn/WEINu3txubs7i6iDURCo/YRdGRg78xDMJbDz?fbclid=IwAR2aGq34pK8X-jE3uS-kdnQK_p2cmeSJDP_38zCicoguZawpVBTq7oHRYBo">Đóng quỹ</a></li>
+    <li><a href="https://www.facebook.com/profile.php?id=100006113355309">Liên hệ</a></li>
 	</ul>
 </nav>
-
-
-
-    
       </label>
     </section>
     <div class="altar">
@@ -51,8 +47,6 @@
           <div class="food-slot"></div>
         </div>
       </div>
-      
-      
       <img id="unnamed-img" src="unnamed.png" style="position: absolute; transform: translate(-50%, -50%); display: none;">
       <nav class="menu">
         <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
@@ -60,278 +54,14 @@
          <span class="lines line-1"></span>
          <span class="lines line-2"></span>
          <span class="lines line-3"></span>
-       </label>
-     
-        
+       </label>       
         <a href="#" class="menu-item red" > <i></i><img src="unnamed.png" onclick="requestLuck()"  style="width: 60px; top: 70px; height: 70px;"> </a>
-        <a href="#" class="menu-item purple"> <i ></i><img src="cross.png"onclick="clearSelectedFoods()" alt="heoqauy" style="width: 70px; height: 70px;"> </a>
-        <a href="#" class="menu-item blue"> <i></i><img src="nhang.png" onclick="performAction()"  style="width: 60px; height: auto;"> </a>
-       
+        <a href="#" class="menu-item purple"> <i ></i><img src="cross.png"onclick="clearSelectedFoods()" style="width: 70px; height: 70px;"> </a>
+        <a href="#" class="menu-item blue"> <i></i><img src="nhang.png" onclick="performAction()"  style="width: 60px; height: auto;"> </a>    
      </nav>
       <audio id="myAudio" src="Than-Tai-Den-Don-Nguyen.mp3" preload="auto">123</audio>
-    </div>
-   
-   
-     
-    
+    </div>       
   </div>
-
-
-  <script>
-  function shakeImage() {
-  var unnamedImage = document.getElementById('unnamed-img');
-  unnamedImage.classList.add('shaking');
-}
-
-
-function requestLuck() {
-  var upperTattoos = [1,2,7,8,9,10,11,19,21,22,24,30,32,40,45,50,54,55,57,58,60,64,65,66,68,69,74,78,79,80,87,89,92,93,97,98,99,100];
-  var middleTattoos = [3,5,12,13,16,18,20,23,26,27,28,29,31,33,34,35,36,37,39,41,42,43,44,46,48,51,52,53,56,61,62,63,67,71,72,73,75,76,77,81,82,83,84,85,86,88,90,91,94,95];
-  var lowerTattoos = [4,6,14,15,17,25,38,47,49,59,70,96];
-
-  var unnamedImage = document.getElementById('unnamed-img');
-  unnamedImage.style.display = 'block';
-  shakeImage();
-  // Hiển thị hình ảnh "unnamed-img"
-  unnamedImage.style.display = "inline-block";
-  // Ẩn các hình ảnh khác
-
-  // Lấy số ngẫu nhiên từ mảng tương ứng
-  var randomTattoo;
-  var tattooType;
-
-  // Kiểm tra xăm thượng
-  if (upperTattoos.length > 0) {
-    randomTattoo = upperTattoos[Math.floor(Math.random() * upperTattoos.length)];
-    tattooType = "Xăm thượng";
-    // Xử lý cho xăm thượng
-  }
-
-  // Kiểm tra xăm trung
-  else if (middleTattoos.length > 0) {
-    randomTattoo = middleTattoos[Math.floor(Math.random() * middleTattoos.length)];
-    tattooType = "Xăm Trung";
-    // Xử lý cho xăm trung
-  }
-
-  // Kiểm tra xăm hạ
-  else if (lowerTattoos.length > 0) {
-    randomTattoo = lowerTattoos[Math.floor(Math.random() * lowerTattoos.length)];
-    tattooType = "Xăm Hạ";
-    // Xử lý cho xăm hạ
-  }
-
-  // Hiển thị thông báo thành công
-  setTimeout(function() {
-    unnamedImage.style.display = 'none';
-    unnamedImage.classList.remove('shaking');
-    alert("Xin xăm may mắn thành công!\nBạn được xăm: " + tattooType + " - " + randomTattoo);
-  }, 3000);
-
-}
-
-
-    function displaySelectedFoods() {
-  clearTimeout(foodTimer); // Clear any existing timers
-
-  // Remove all previously displayed food items
-  var existingFood = document.querySelectorAll(".food-wrapper");
-  existingFood.forEach(function (food) {
-    food.remove();
-    var foodId = food.getAttribute("foodId");
-    var index = selectedFoods.indexOf(foodId);
-    if (index !== -1) {
-      selectedFoods.splice(index, 1);
-    }
-  });
-
-  // Loop through the selected food items and display them
-  selectedFoods.forEach(function (foodId) {
-    placeFood(foodId);
-  });
-
-  // Set a timer to remove the food items from the display after 30 seconds
-  foodTimer = setTimeout(function () {
-    var foodToRemove = document.querySelectorAll(".food-wrapper");
-    foodToRemove.forEach(function (food) {
-      food.remove();
-      var foodId = food.getAttribute("foodId");
-      var index = selectedFoods.indexOf(foodId);
-      if (index !== -1) {
-        selectedFoods.splice(index, 1);
-      }
-    });
-  }, 30000); // Set the display time to 30 seconds
-}
-
-function performAction() {
-  lightIncense('incense-stick-1');
-  sendPrayer();
-  displaySelectedFoods(); // Display all selected food items
-
-  // Set a timer to remove all food items after 30 seconds
-  setTimeout(function () {
-    var foodToRemove = document.querySelectorAll(".food-wrapper");
-    foodToRemove.forEach(function (food) {
-      food.remove();
-      var foodId = food.getAttribute("foodId");
-      var index = selectedFoods.indexOf(foodId);
-      if (index !== -1) {
-        selectedFoods.splice(index, 1);
-      }
-    });
-  }, 30000);
-}
-
-
-
-function clearSelectedFoods() {
-  // Xóa tất cả các món ăn đã hiển thị
-  var foodToRemove = document.querySelectorAll(".food-wrapper");
-  foodToRemove.forEach(function (food) {
-    food.remove();
-    var foodId = food.getAttribute("foodId");
-    var index = selectedFoods.indexOf(foodId);
-    if (index !== -1) {
-      selectedFoods.splice(index, 1);
-    }
-  });
-}
-
-
-
-
-
-function toggleMenu() {
-  var menu = document.querySelector(".menu");
-  if (menu.style.display === "none") {
-    menu.style.display = "block";
-  } else {
-    menu.style.display = "none";
-  }
-}
-
-function placeFood(foodId) {
-  var existingFood = document.querySelectorAll(".placed-food");
-
-  // Check if the maximum of 3 food items is already placed
-  if (existingFood.length >= 3) {
-    // Check if this is the 4th food item
-    if ((existingFood.length + 1) % 4 === 0) {
-      // Do something when the 4th food item is placed
-    }
-  }
-
-  // Code to place the food item on the altar
-  var foodElement = document.createElement("img");
-  var foodItemId = "food-" + Date.now(); // Generate a unique identifier
-  foodElement.dataset.foodId = foodItemId;
-  foodElement.src = foodId + ".png";
-  foodElement.alt = "Đồ ăn";
-  foodElement.classList.add("placed-food");
-  foodElement.style.width = "70px";
-  foodElement.style.height = "auto"; // Maintain aspect ratio
-
-  var foodWrapper = document.createElement("div");
-  foodWrapper.classList.add("food-wrapper");
-  foodWrapper.appendChild(foodElement);
-
-  // Find the first available food slot
-  var foodSlots = document.querySelectorAll(".food-slot");
-  var nextSlot = Array.from(foodSlots).find(slot => slot.childElementCount === 0);
-  if (nextSlot) {
-    nextSlot.appendChild(foodWrapper);
-  } else {
-    console.log("No available food slots.");
-    return;
-  }
-}
-
-
-function sendPrayer() {
-  // Display all the selected food items from the array
-  selectedFoods.forEach(function (foodId) {
-    placeFood(foodId);
-  });
-}
-
-
-
-
-
-
-    
-    function lightIncense(incenseId) {
-  var incenseStick = document.getElementById(incenseId);
-  incenseStick.src = "caunguyen2.png";
-  animateSmoke(incenseStick);
-  setTimeout(function() {
-    extinguishIncense(incenseStick);
-  }, 30000);
-  var audio = document.getElementById("myAudio");
-      audio.play();
-}
-
-function lightAllIncense() {
-  var incenseSticks = document.getElementsByClassName("incense-stick");
-  for (var i = 0; i < incenseSticks.length; i++) {
-    var incenseStick = incenseSticks[i];
-    incenseStick.src = "caunguyen2.png";
-    animateSmoke(incenseStick);
-    setTimeout(function() {
-      extinguishIncense(incenseStick);
-    }, 30000);
-  }
-}
-
-function animateSmoke(incenseStick) {
-  var smoke = document.createElement("div");
-  smoke.className = "smoke";
-  incenseStick.parentElement.appendChild(smoke);
-
-  setTimeout(function() {
-    smoke.remove();
-  }, 3000);
-}
-
-function extinguishIncense(incenseStick) {
-  incenseStick.src = "caunguyen.png";
-}
-function sendPrayer() {
-      var prayerText = prompt("Nhập lời cầu nguyện của bạn:");
-
-      if (prayerText) {
-        // Gửi lời cầu nguyện qua email
-        var emailContent = "Lời cầu nguyện: " + prayerText;
-
-        // Sử dụng Nodemailer để gửi email
-        var nodemailer = require('nodemailer');
-
-        var transporter = nodemailer.createTransport({
-          service: 'gmail',
-          auth: {
-            user: 'ranklatatca@gmail.com',
-            pass: 'sinh01227778163'
-          }
-        });
-
-        var mailOptions = {
-          from: 'ntai4375@gmail.com',
-          to: 'ranklatatca@gmail.com',
-          subject: 'Lời cầu nguyện',
-          text: emailContent
-        };
-
-        transporter.sendMail(mailOptions, function(error, info){
-          if (error) {
-            console.log(error);
-          } else {
-            console.log('Email sent: ' + info.response);
-          }
-        });
-      }
-    }
-  </script>
 </body>
 </html>
 
